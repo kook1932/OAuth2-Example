@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.does.biz.dao.UserDAO">
+
+	<select id="findByEmail" resultType="User">
+		SELECT *
+		FROM USER
+		WHERE email=#{email:VARCHAR} AND provider=#{provider:VARCHAR}
+	</select>
+
+	<insert id="save" parameterType="User">
+		INSERT INTO USER(NAME, EMAIL, PICTURE, ROLE, PROVIDER)
+		VALUES(#{name:VARCHAR}, #{email:VARCHAR}, #{picture:VARCHAR}, #{role:VARCHAR}, #{provider:VARCHAR})
+	</insert>
+
+	<update id="update" parameterType="User">
+		UPDATE USER
+		SET NAME=#{name:VARCHAR}, PICTURE=#{picture:VARCHAR}
+		WHERE SEQ=#{seq}
+	</update>
+
+</mapper>
