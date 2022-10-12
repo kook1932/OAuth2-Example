@@ -5,17 +5,21 @@
 
 	<select id="findByEmail" resultType="User">
 		SELECT *
-		FROM USER
+		FROM TB_USER
 		WHERE email=#{email:VARCHAR} AND provider=#{provider:VARCHAR}
 	</select>
 
 	<insert id="save" parameterType="User">
-		INSERT INTO USER(NAME, EMAIL, PICTURE, ROLE, PROVIDER)
-		VALUES(#{name:VARCHAR}, #{email:VARCHAR}, #{picture:VARCHAR}, #{role:VARCHAR}, #{provider:VARCHAR})
+		<selectKey keyProperty="seq" resultType="long" order="BEFORE">
+			SELECT TB_USER_SEQ.NEXTVAL AS SEQ
+			FROM DUAL
+		</selectKey>
+		INSERT INTO TB_USER(SEQ, NAME, EMAIL, PICTURE, ROLE, PROVIDER)
+		VALUES(#{seq}, #{name:VARCHAR}, #{email:VARCHAR}, #{picture:VARCHAR}, #{role:VARCHAR}, #{provider:VARCHAR})
 	</insert>
 
 	<update id="update" parameterType="User">
-		UPDATE USER
+		UPDATE TB_USER
 		SET NAME=#{name:VARCHAR}, PICTURE=#{picture:VARCHAR}
 		WHERE SEQ=#{seq}
 	</update>
