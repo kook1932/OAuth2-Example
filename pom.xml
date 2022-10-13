@@ -96,6 +96,7 @@
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>1.0</version>
+<!--			scope, systemPath 를 사용하면 jenkins maven build 시 war 에 포함되지 않는다.		-->
 <!--			<scope>system</scope>-->
 <!--			<systemPath>${project.basedir}/lib/ojdbc6.jar</systemPath>-->
 		</dependency>

@@ -29,7 +29,6 @@ public class OAuthAttributes {
 
 	// OAuth2User(Default) 에서 반환하는 사용자 정보는 Map 에 담겨있기 때문에 값 하나하나를 변환해야한다.
 	public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
-		System.out.println("attributes = " + attributes);
 		if ("naver".equalsIgnoreCase(registrationId)){
 			return ofNaver("id", attributes, registrationId);
 		}
