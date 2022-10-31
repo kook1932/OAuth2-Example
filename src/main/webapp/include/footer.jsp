@@ -5,6 +5,7 @@
 <script>
 	let url = encodeURIComponent(window.location.href);
 	let sharingText = encodeURIComponent('sns 공유하기');
+	let sns_br = encodeURIComponent("\n");
 </script>
 
 <%-- 공유하기 : kakao --%>
@@ -44,7 +45,21 @@
 <%-- 공유하기 : twitter --%>
 <script>
 	document.getElementById("twitter-sharing-btn").addEventListener("click", () => {
-		window.open("https://twitter.com/intent/tweet?text=" + sharingText + "&url=" + url);
+		window.open("https://twitter.com/intent/tweet?text=" + sharingText + "&url=" + sharingText);
+	})
+</script>
+
+<%-- 공유하기 : naver --%>
+<script>
+	document.getElementById("naver-sharing-btn").addEventListener("click", () => {
+		window.open("https://share.naver.com/web/shareView?url=" + url + "&title=" + sharingText);
+	})
+</script>
+
+<%-- 공유하기 : line --%>
+<script>
+	document.getElementById("line-sharing-btn").addEventListener("click", () => {
+		window.open("https://line.me/R/msg/?" + sharingText + sns_br + url + 'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png');
 	})
 </script>
 

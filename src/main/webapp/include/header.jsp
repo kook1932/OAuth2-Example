@@ -8,7 +8,6 @@
 		.sharing_btn {width:68px;height:69px;}
 	</style>
 	<%-- 공유하기 : facebook --%>
-	<%-- 이미지 캐시 : https://developers.facebook.com/tools/debug/ --%>
 	<meta property="og:title"			content="og title"/>
 	<meta property="og:description"		content="og description"/>
 	<meta property="og:keyword"			content="og keyword"/>
@@ -38,4 +37,10 @@
 </a>
 <a id="twitter-sharing-btn" href="javascript:;">
 	<img src="/assets/images/twitter_sharing_btn.png" class="sharing_btn" alt="트위터 공유 보내기 버튼" />
+</a>
+<a id="naver-sharing-btn" href="javascript:;">
+	<img src="/assets/images/img_naver_share.png" class="sharing_btn" alt="네이버 공유 보내기 버튼" />
+</a>
+<a id="line-sharing-btn" href="javascript:;">
+	<img src="/assets/images/line_sharing_btn.png" class="sharing_btn" alt="라인 공유 보내기 버튼" />
 </a>
