@@ -1,0 +1,14 @@
+* {
+	border: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 15px;
+}
+
+/* footer.jsp */
+.share-wrap {margin-top: 2rem;}
+.share-item {display: inline-block;}
+.sharing_btn {width:68px;height:69px;}

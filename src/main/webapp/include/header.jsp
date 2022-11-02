@@ -1,12 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-	<title>OAuth2 Example</title>
+	<title>SNS Login, Sharing</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<style>
-		.sharing_btn {width:68px;height:69px;}
-	</style>
+	<link rel="stylesheet" href="/assets/css/index.css">
 	<%-- 공유하기 : facebook --%>
 	<meta property="og:title"			content="og title"/>
 	<meta property="og:description"		content="og description"/>
@@ -29,18 +27,3 @@
 	</script>
 </head>
 <body>
-<a id="kakaotalk-sharing-btn" href="javascript:;">
-	<img src="/assets/images/kakaotalk_sharing_btn_medium.png" class="sharing_btn" alt="카카오톡 공유 보내기 버튼" />
-</a>
-<a id="facebook-sharing-btn" href="javascript:;">
-	<img src="/assets/images/facebook_sharing_btn.png" class="sharing_btn" alt="페이스북 공유 보내기 버튼" />
-</a>
-<a id="twitter-sharing-btn" href="javascript:;">
-	<img src="/assets/images/twitter_sharing_btn.png" class="sharing_btn" alt="트위터 공유 보내기 버튼" />
-</a>
-<a id="naver-sharing-btn" href="javascript:;">
-	<img src="/assets/images/img_naver_share.png" class="sharing_btn" alt="네이버 공유 보내기 버튼" />
-</a>
-<a id="line-sharing-btn" href="javascript:;">
-	<img src="/assets/images/line_sharing_btn.png" class="sharing_btn" alt="라인 공유 보내기 버튼" />
-</a>
