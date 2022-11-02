@@ -11,7 +11,7 @@
 	<meta property="og:keyword"			content="og keyword"/>
 	<meta property="og:url"				content="https://hdm2.doesbook.kr"/>
 	<meta property="og:type"			content="website"/>
-	<meta property="og:image"			content="https://hdm2.doesbook.kr/assets/images/smilepet.png"/>
+	<meta property="og:image"			content="https://hdm2.doesbook.kr/assets/images/smilepet.jpeg"/>
 	<meta property="og:image:width"		content="1200">
 	<meta property="og:image:height"	content="631">
 	<%-- 공유하기 : twitter --%>
@@ -19,7 +19,7 @@
 	<meta name="twitter:description"	content="twitter sharing description"/>
 	<meta name="twitter:url"	        content="https://hdm2.doesbook.kr"/>
 	<meta name="twitter:card"			content="summary_large_image"/>
-	<meta name="twitter:image"			content="https://hdm2.doesbook.kr/assets/images/smilepet.png"/>
+	<meta name="twitter:image"			content="https://hdm2.doesbook.kr/assets/images/smilepet.jpeg"/>
 	<%-- 공유하기 : kakao --%>
 	<script src="/assets/lib/kakao.min.js"></script>
 	<script>
