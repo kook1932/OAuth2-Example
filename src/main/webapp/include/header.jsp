@@ -23,7 +23,12 @@
 	<meta name="twitter:card"			content="summary_large_image"/>
 	<meta name="twitter:image"			content="http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png"/>
 	<%-- 공유하기 : kakao --%>
-	<script src="/assets/lib/kakao.min.js"></script>
+<%--	<script src="/assets/lib/kakao.min.js"></script>--%>
+<%--	<script>--%>
+<%--		Kakao.init('120203cc95807a7db529b2866810b536'); // 사용하려는 앱의 JavaScript 키 입력--%>
+<%--	</script>--%>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
+	        integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 	<script>
 		Kakao.init('120203cc95807a7db529b2866810b536'); // 사용하려는 앱의 JavaScript 키 입력
 	</script>

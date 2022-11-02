@@ -12,8 +12,8 @@ Kakao.Share.createDefaultButton({
 		// 메세지 템플릿 이미지 업로드 : https://developers.kakao.com/tool/template-builder/app/562374/template
 		imageUrl: 'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
 		link: {
-			mobileWebUrl: 'http://localhost:8080',
-			webUrl: 'http://localhost:8080',
+			mobileWebUrl: url,
+			webUrl: url,
 		},
 	},
 	buttons: [
