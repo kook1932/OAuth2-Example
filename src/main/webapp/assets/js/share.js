@@ -44,5 +44,5 @@ document.getElementById("naver-sharing-btn").addEventListener("click", () => {
 
 // 공유하기 : line
 document.getElementById("line-sharing-btn").addEventListener("click", () => {
-	window.open("https://line.me/R/msg/?" + sharingText + sns_br + url + 'https://hdm2.doesbook.kr/assets/images/smilepet.jpeg');
+	window.open("http://line.me/R/msg/text/?" + sharingText + sns_br + url + 'https://hdm2.doesbook.kr/assets/images/smilepet.jpeg');
 })

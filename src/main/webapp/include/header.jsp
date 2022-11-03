@@ -18,7 +18,7 @@
 	<meta name="twitter:title"			content="twitter sharing title"/>
 	<meta name="twitter:description"	content="twitter sharing description"/>
 	<meta name="twitter:url"	        content="https://hdm2.doesbook.kr"/>
-	<meta name="twitter:card"			content="summary"/>
+	<meta name="twitter:card"			content="summary_large_image"/>
 	<meta name="twitter:image:src"      content="https://hdm2.doesbook.kr/assets/images/smilepet.jpeg"/>
 	<%-- 공유하기 : kakao --%>
 	<script src="/assets/lib/kakao.min.js"></script>
