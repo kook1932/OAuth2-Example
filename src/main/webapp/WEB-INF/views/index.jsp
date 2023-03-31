@@ -11,6 +11,7 @@
 			<%@ include file="../../include/login.jsp"%>
 			<a href="/myPage" class="btn btn-success active" role="button">My Page</a>
 			<a href="/view" class="btn btn-dark active" role="button">일반 페이지</a>
+			<a href="/closeConnection" class="btn btn-dark active" role="button">closeConnection</a>
 		</div>
 	</div>
 </div>

@@ -16,15 +16,17 @@ public class OAuthAttributes {
 	private String email;
 	private String picture;
 	private String provider;
+	private String id;
 
 	@Builder
-	public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture, String provider) {
+	public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture, String provider, String id) {
 		this.attributes = attributes;
 		this.nameAttributeKey = nameAttributeKey;
 		this.name = name;
 		this.email = email;
 		this.picture = picture;
 		this.provider = provider;
+		this.id = id;
 	}
 
 	// OAuth2User(Default) 에서 반환하는 사용자 정보는 Map 에 담겨있기 때문에 값 하나하나를 변환해야한다.
@@ -65,11 +67,13 @@ public class OAuthAttributes {
 	private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String, Object> attributes, String registrationId) {
 		Map<String, Object> response = (Map<String, Object>) attributes.get("kakao_account");
 		Map<String, Object> profile = (Map<String, Object>) response.get("profile");
+		long id = (long) attributes.get("id");
 
 		return OAuthAttributes.builder()
 				.name((String) profile.get("nickname"))
 				.email((String) response.get("email"))
 				.picture((String) profile.get("profile_image_url"))
+				.id(Long.toString(id))
 				.provider(registrationId)
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
@@ -83,6 +87,7 @@ public class OAuthAttributes {
 				.picture(picture)
 				.role(Role.USER)
 				.provider(provider)
+				.id(id)
 				.build();
 	}
 }

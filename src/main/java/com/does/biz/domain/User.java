@@ -15,14 +15,16 @@ public class User implements Serializable {
 	private String picture;
 	private Role role;
 	private String provider;
+	private String id;
 
 	@Builder
-	public User(String name, String email, String picture, Role role, String provider) {
+	public User(String name, String email, String picture, Role role, String provider, String id) {
 		this.name = name;
 		this.email = email;
 		this.picture = picture;
 		this.role = role;
 		this.provider = provider;
+		this.id = id;
 	}
 
 	public String getRoleKey() {

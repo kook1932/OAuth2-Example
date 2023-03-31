@@ -52,6 +52,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
 		// 세션에 사용자 정보를 담음
 		httpSession.setAttribute("user", user);
+		httpSession.setAttribute("userId", attributes.getId());
 
 		return new DefaultOAuth2User(
 				Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
@@ -66,6 +67,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
 		if (user.getSeq() > 0)  userDAO.update(user);
 		else                    userDAO.save(user);
+		if (user.getProvider().equalsIgnoreCase("kakao")) user.setId(attributes.getId());
 
 		return user;
 	}
