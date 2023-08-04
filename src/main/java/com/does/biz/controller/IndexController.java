@@ -4,13 +4,13 @@ import com.does.biz.domain.User;
 import com.does.config.auth.LoginUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -24,6 +24,9 @@ import java.util.Map;
 public class IndexController {
 
 	@Value("${spring.oauth2.kakao.admin-key}") String adminKey;
+	@Value("${spring.security.oauth2.client.registration.naver.client-id}") String naverClientId;
+	@Value("${spring.security.oauth2.client.registration.naver.client-secret}") String naverClientSecret;
+
 	private final HttpSession httpSession;
 
 	@GetMapping("/")
@@ -63,7 +66,11 @@ public class IndexController {
 	}
 
 	@GetMapping("/closeConnection")
-	public ResponseEntity<Map> closeConnection(@LoginUser User user) {
+	public ResponseEntity closeConnection(@LoginUser User user) {
+		return "kakao".equalsIgnoreCase(user.getProvider()) ? deleteKakaoConnection(user) : deleteNaverConnection(user);
+	}
+
+	private ResponseEntity<Map> deleteKakaoConnection(User user) {
 		URI uri = UriComponentsBuilder
 				.fromUriString("https://kapi.kakao.com")
 				.path("/v1/user/unlink")
@@ -82,6 +89,26 @@ public class IndexController {
 
 		RestTemplate restTemplate = new RestTemplate();
 		return restTemplate.exchange(requestEntity, Map.class);
+	}
+
+	private ResponseEntity<Map> deleteNaverConnection(User user) {
+
+		URI uri = UriComponentsBuilder
+				.fromUriString("https://nid.naver.com")
+				.path("/oauth2.0/token")
+				.queryParam("client_id", naverClientId)
+				.queryParam("client_secret", naverClientSecret)
+				.queryParam("access_token", user.getId())
+				.queryParam("grant_type", "delete")
+				.queryParam("service_provider", "NAVER")
+				.encode()
+				.build()
+				.toUri();
+
+		RequestEntity<Map<String, Object>> request = new RequestEntity<>(new HttpHeaders(), HttpMethod.GET, uri);
+
+		RestTemplate restTemplate = new RestTemplate();
+		return restTemplate.exchange(request, Map.class);
 	}
 
 }

@@ -6,7 +6,7 @@ create table TB_USER (
 	role varchar(255) not null,
 	provider varchar(255) not null,
 	primary key (seq)
-)
+);
 
 CREATE SEQUENCE TB_USER_SEQ increment by 1 start with 1 nocache nocycle;
 

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Service
@@ -44,8 +46,13 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 				.getUserInfoEndpoint()
 				.getUserNameAttributeName();
 
+		Map<String, Object> oAuth2UserAttributes = new HashMap<>(oAuth2User.getAttributes());
+		if ("naver".equalsIgnoreCase(registrationId)) {
+			oAuth2UserAttributes.put("accessToken", userRequest.getAccessToken().getTokenValue());
+		}
+
 		// OAuth2UserService 를 통해 가져온 OAuth2User 의 attribute 를 담을 객체를 생성
-		OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
+		OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2UserAttributes);
 
 		// user 정보를 저장 or 수정
 		User user = saveOrUpdate(attributes);
